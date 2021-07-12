@@ -1,0 +1,23 @@
+
+.Recipe-header{
+    background-color: #52525b;
+    min-height: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + vmin);
+    color: white;
+}
+
+.container {
+    max-width: 36rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+  }
+
+.recipe_img {
+    object-fit: cover;
+    max-height: 500px;
+    width: auto;
+}
