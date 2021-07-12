@@ -14,7 +14,7 @@ class App extends React.Component{
     e.preventDefault();
     const ingredient = e.target.elements.searchValue.value;
 
-    const request = await fetch(`http://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`, {mode: 'no-cors'});
+    const request = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`, {mode: 'no-cors'});
     //const request = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
     const response = await request.json();
     if(!ingredient){

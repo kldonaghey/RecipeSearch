@@ -4,7 +4,9 @@ import './recipe.module.css';
 
 const Recipe = () => async (props) => {
     const ingredient = props.location.state.meal.idMeal;
-    const req = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
+    //const req = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
+    const req = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
+    
     const res = await req.json();
     //const videoID = res.meals.strYoutube.replaceAll("\\", "");
     return(        
