@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Form from './components/Form';
 import MealList from './components/MealList';
+import Search from './search.json';
 
 
 class App extends React.Component{
@@ -14,9 +15,13 @@ class App extends React.Component{
     e.preventDefault();
     const ingredient = e.target.elements.searchValue.value;
 
-    const request = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    //const request = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
     //const request = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
-    const response = await request.json();
+    //const response = await request.json();
+    const request = Search;
+    //const response = await request.text();
+    const response = request;
+    console.log(response);
     if(!ingredient){
       this.setState({error: "Please provide a value"});
     }else{

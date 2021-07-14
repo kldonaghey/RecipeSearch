@@ -24,6 +24,7 @@
   }
   
   .search__form button {
+    border: 0;
     height: 40px;
     margin: 4px;
     padding: 4px;
