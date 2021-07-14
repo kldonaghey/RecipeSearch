@@ -16,7 +16,7 @@ const MealList = ( props ) => {
                             <div className="recipe__box">
                                 <img
                                     className="recipe__box-img"
-                                    src={ meal.strMealThumb }
+                                    src={`${ meal.strMealThumb }/preview`}
                                     alt={ meal.strMeal }
                                 />
                                 <div className="recipe__text">
