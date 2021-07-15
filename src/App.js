@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import Form from './components/Form';
 import MealList from './components/MealList';
@@ -23,7 +23,7 @@ class App extends React.Component{
     const response = request;
     console.log(response);
     if(!ingredient){
-      this.setState({error: "Please provide a value"});
+      this.setState({ error: "Please provide a value" });
     }else{
       this.setState({ recipes: response.meals, error: null });
     }
@@ -38,7 +38,7 @@ class App extends React.Component{
         <Form getMealInfo={ this.getMealInfo }/>
         {
           this.state.error !== null ? 
-          <div style= {{color:"fff", textAlign:"center"}}>{this.state.error}</div> :
+          <div style= {{color:"fff", textAlign:"center"}}> { this.state.error } </div> :
           <MealList recipes= {this.state.recipes}/>
         }
       </div>

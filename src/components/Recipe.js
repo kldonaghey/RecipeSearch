@@ -1,18 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './recipe.module.css';
+import Result from '../recipe.json'
 
 const Recipe = () => async (props) => {
-    const ingredient = props.location.state.meal.idMeal;
+    //const ingredient = props.location.state.meal.idMeal;
     //const req = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
-    const req = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
-    
-    const res = await req.json();
+    //const req = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
+    const request = Result;
+    //const res = await req.json();
+    const response = request;
     //const videoID = res.meals.strYoutube.replaceAll("\\", "");
     return(        
         <div className = "container">
             <div className = "row">
-                {res.meals.map((meal) => {
+                {response.meals.map((meal) => {
                     return(
                         <div key={ meal.idMeal }
                             className= "col-md-4"
