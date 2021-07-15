@@ -39,7 +39,7 @@ class App extends React.Component{
         {
           this.state.error !== null ? 
           <div style= {{color:"fff", textAlign:"center"}}> { this.state.error } </div> :
-          <MealList recipes= {this.state.recipes}/>
+          <MealList recipes= { this.state.recipes }/>
         }
       </div>
     );
