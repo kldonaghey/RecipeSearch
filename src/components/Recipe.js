@@ -7,8 +7,8 @@ class Recipe extends React.Component {
     resultMeal: [],
     error: null,
   };
-  componentDidMount = async (props) => {
-    const ingredient = props.location.state.meal.idMeal;
+  componentDidMount = async () => {
+    const ingredient = this.props.location.state.meal.idMeal;
     try {
       //const request = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
       const request = await fetch(
