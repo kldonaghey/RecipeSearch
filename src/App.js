@@ -12,17 +12,17 @@ class App extends React.Component {
   getMealInfo = async (e) => {
     e.preventDefault();
     const ingredient = e.target.elements.searchValue.value;
-
-    const request = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
-    );
-    //const request = await fetch(`https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
-    const response = await request.json();
-    console.log(response);
-    if (!ingredient) {
-      this.setState({ error: "Please provide a value" });
-    } else {
+    try{
+      //const request = await fetch(`https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+      const request = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
+      );
+      const response = await request.json();
       this.setState({ recipes: response.meals, error: null });
+    }catch (err){
+      if (!ingredient) {
+        this.setState({ error: "Please provide a value" });}
+      console.error("Error: " + err);
     }
   };
 

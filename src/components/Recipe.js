@@ -9,13 +9,19 @@ class Recipe extends React.Component {
   };
   componentDidMount = async (props) => {
     const ingredient = props.location.state.meal.idMeal;
-    //const request = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
-    const request = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`
-    );
-    const response = await request.json();
-    //const videoID = res.meals.strYoutube.replaceAll("\\", "");
-    this.setState({ resultMeal: response.meals });
+    try {
+      //const request = await fetch(`https://cors-anywhere.herokuapp.com/http://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`)
+      const request = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${ingredient}`
+      );
+      const response = await request.json();
+      //const videoID = res.meals.strYoutube.replaceAll("\\", "");
+      this.setState({ resultMeal: response.meals, error: null });
+    }catch (err){
+      if (!ingredient) {
+        this.setState({ error: "Unable to retrieve recipe" });}
+      console.error("Error: " + err);        
+    }
   };
   render() {
     const recipe = this.state.resultMeal;
